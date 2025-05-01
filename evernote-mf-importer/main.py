@@ -26,7 +26,7 @@ def main():
 
     now = datetime.now()
     timestamp = now.strftime("%Y%m%d%H%M%S")
-    output_file = os.path.join(os.path.dirname(input_file), f"MFimport_{timestamp}.csv")
+    output_file = os.path.join(os.path.dirname(input_file), f"mf_journal_{timestamp}.csv")
 
     print(f"読み込み中: {input_file}")
     notes = parse_enex(input_file)
