@@ -4,8 +4,17 @@ def transform_notes(titles):
 
     for title in titles:
         try:
-            date, debit, vendor, amount_str, memo = title.split('_')
+            parts = title.split('_')
+            if len(parts) == 5:
+                date, debit, vendor, amount_str, memo = parts
+            elif len(parts) == 4:
+                date, debit, vendor, amount_str = parts
+                memo = ""
+            else:
+                raise ValueError(f"要素数が4または5ではありません（{len(parts)}）")
+
             amount = int(amount_str.replace(',', '').replace('円', ''))
+
             record = {
                 "取引No": "",
                 "取引日": date.replace('.', '/'),
@@ -17,6 +26,7 @@ def transform_notes(titles):
                 "仕訳メモ": memo,
             }
             records.append(record)
+
         except Exception as e:
             errors.append((title, str(e)))
 
