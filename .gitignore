@@ -1,3 +1,3 @@
-evernote-mf-importer/.venv/   # 仮想環境のフォルダを無視（環境ごとに異なるためGit管理不要）
-__pycache__/                  # Pythonのバイトコードキャッシュを無視
-*.pyc                         # 万が一直下に .pyc ができても無視
+evernote-mf-importer/.venv/         # 仮想環境を無視
+**/__pycache__/                     # すべての階層にある__pycache__を無視
+*.pyc                               # どの場所でも.pycを無視
