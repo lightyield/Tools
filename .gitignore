@@ -1,3 +1,3 @@
-**/__pycache__/           # すべての階層の __pycache__ ディレクトリを無視
-**/*.pyc                  # すべての階層の .pyc ファイルを無視
-evernote-mf-importer/.venv/  # 仮想環境も引き続き無視
+evernote-mf-importer/.venv/     # 仮想環境を無視
+**/__pycache__/                 # 任意の階層の __pycache__ ディレクトリを無視
+**/*.pyc                        # 任意の階層の .pyc ファイルを無視
