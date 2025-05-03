@@ -30,12 +30,4 @@ def transform_notes(titles):
         except Exception as e:
             errors.append((title, str(e)))
 
-    if errors:
-        print("\n⚠️ 以下のノート題名は形式エラーのためスキップされました：")
-        for i, (title, err_msg) in enumerate(errors, 1):
-            print(f"{i:>2}. '{title}' → {err_msg}")
-
-    print(f"\n✅ 正常処理数：{len(records)} 件")
-    print(f"❌ スキップ数：{len(errors)} 件")
-
-    return records
+    return records, errors
