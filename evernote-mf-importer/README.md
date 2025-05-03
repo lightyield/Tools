@@ -55,9 +55,6 @@ chmod +x run.sh
    ```bash
    python3 -m src.gui_ctk
    ```
-   ```bash
-   python3 -m src.gui_ctk
-   ```
 
 3. GUI画面が起動し、「ENEXファイル選択」→「CSV出力」の順にボタンを押すだけでCSVが生成されます。
 
