@@ -56,7 +56,7 @@ ctk.set_appearance_mode("system")
 ctk.set_default_color_theme("blue")
 
 app = ctk.CTk()
-app.title("Evernote → MFクラウド CSV変換ツール")
+app.title("Evernote → MFクラウド会計 CSV変換ツール")
 app.geometry("800x500")
 app.minsize(600, 400)
 
