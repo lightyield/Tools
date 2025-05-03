@@ -28,10 +28,11 @@ def select_file():
             tree.delete(row)
 
         try:
-            textbox.insert("end", f"読み込み中: {file_path}\n")
             titles = parse_enex(file_path)
             records, errors = transform_notes(titles)
             parsed_records = records
+
+            textbox.insert("end", f"✅ 読み込み完了: {file_path}\n")
 
             if errors:
                 textbox.insert("end", "\n⚠️ 以下のノート題名はスキップされました：\n")
@@ -94,7 +95,7 @@ btn_browse.pack(side="left", padx=10)
 label_arrow = ctk.CTkLabel(button_frame, text="-->")
 label_arrow.pack(side="left", padx=10)
 
-btn_convert = ctk.CTkButton(button_frame, text="CSV出力", command=convert, width=200)
+btn_convert = ctk.CTkButton(button_frame, text="MFクラウド会計向けCSV出力", command=convert, width=200)
 btn_convert.pack(side="left", padx=10)
 
 # --- コンソール ---
