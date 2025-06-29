@@ -115,7 +115,3 @@ tree.configure(xscrollcommand=scrollbar.set)
 scrollbar.grid(row=3, column=0, sticky="ew", padx=20)
 
 app.mainloop()
-
-
-if __name__ == '__main__':
-    app.mainloop()
