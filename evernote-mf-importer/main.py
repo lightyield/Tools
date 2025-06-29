@@ -64,9 +64,18 @@ class App(ctk.CTk):
                 self.tree.delete(row)
 
             try:
-                titles = parse_enex(file_path)
-                records, errors = transform_notes(titles)
-                self.parsed_records = records
+                try:
+                    titles = parse_enex(file_path)
+                except Exception as e:
+                    self.textbox.insert("end", f"\n❌ エラー: ファイルのパースに失敗しました。\n{e}\n")
+                    return
+
+                try:
+                    records, errors = transform_notes(titles)
+                    self.parsed_records = records
+                except Exception as e:
+                    self.textbox.insert("end", f"\n❌ エラー: データの変換に失敗しました。\n{e}\n")
+                    return
 
                 self.textbox.insert("end", f"✅ 読み込み完了: {file_path}\n")
 
@@ -83,8 +92,6 @@ class App(ctk.CTk):
                     row = [record.get(h, "") for h in CSV_HEADERS]
                     self.tree.insert("", "end", values=row)
 
-            except Exception as e:
-                self.textbox.insert("end", f"\n❌ エラーが発生しました:\n{str(e)}\n")
             finally:
                 self.textbox.configure(state="disabled")
 
